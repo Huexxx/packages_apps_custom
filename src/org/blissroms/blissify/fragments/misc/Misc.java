@@ -44,14 +44,26 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.blissroms.blissify.fragments.misc.SmartPixels;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String SMART_PIXELS = "smart_pixels";
+
+    private Preference mSmartPixels;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.blissify_misc);
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        mSmartPixels = (Preference) findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = getResources().getBoolean(
+              com.android.internal.R.bool.config_supportSmartPixels);
+        if (!mSmartPixelsSupported)
+              prefSet.removePreference(mSmartPixels);
     }
 
     @Override

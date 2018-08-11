@@ -24,17 +24,24 @@
         android:summary="@string/show_clipboard_overlay_summary"
         android:defaultValue="true"/>
 
-         </PreferenceCategory>
+    <!-- Smart Pixels -->
+    <Preference
+        android:key="smart_pixels"
+        android:title="@string/smart_pixels_title" 
+        android:summary="@string/smart_pixels_summary" 
+        android:fragment="org.blissroms.blissify.fragments.misc.SmartPixels" />
 
-         <PreferenceCategory
-            android:key="developer_options_category"
-            android:title="@string/developer_options_category">
+    </PreferenceCategory>
 
-        <com.bliss.support.preferences.SecureSettingSwitchPreference
-               android:key="window_ignore_secure"
-               android:title="@string/ignore_window_secure_title"
-               android:summary="@string/ignore_window_secure_summary"
-               android:defaultValue="false"/>
+    <PreferenceCategory
+        android:key="developer_options_category"
+        android:title="@string/developer_options_category">
+
+    <com.bliss.support.preferences.SecureSettingSwitchPreference
+        android:key="window_ignore_secure"
+        android:title="@string/ignore_window_secure_title"
+        android:summary="@string/ignore_window_secure_summary"
+        android:defaultValue="false"/>
 
     <Preference
     	android:key="hide_developer_status_settings"
@@ -43,7 +50,7 @@
         android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
         settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />  
 
-         </PreferenceCategory>
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="miscellaneous_spoofing_category"
