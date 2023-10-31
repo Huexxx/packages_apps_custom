@@ -78,7 +78,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 	private PreferenceCategory mUdfpsCategory;
 	private Context mContext;
 	private ListPreference mTorchPowerButton;
-    private Preference mWeather;
+    private SwitchPreference mWeather;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -132,12 +132,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(mFingerprintErrorVib);
         }
 
-        mWeather = (Preference) findPreference(KEY_WEATHER);
+        mWeather = (SwitchPreference) findPreference(KEY_WEATHER);
         OmniJawsClient weatherClient = new OmniJawsClient(getContext());
         boolean weatherEnabled = weatherClient.isOmniJawsEnabled();
         if (!weatherEnabled) {
             mWeather.setEnabled(false);
             mWeather.setSummary(R.string.lockscreen_weather_enabled_info);
+        } else {
+            mWeather.setChecked((Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_WEATHER_ENABLED, 1) == 1));
+            mWeather.setOnPreferenceChangeListener(this);
         }
 
     }
@@ -166,6 +170,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
+            return true;
+        } else if (preference == mWeather) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_WEATHER_ENABLED, value ? 1 : 0);
             return true;
         }
         return false;
