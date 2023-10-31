@@ -860,6 +860,7 @@
     <string name="weather_style_5">"32°C \u2022 Hoy 32° / 24° \u2022 Madrid"</string>
     <string name="weather_style_6">"32°C \u2022 Hoy 32° / 24° \u2022 Soleado"</string>
     <string name="weather_style_7">"32°C \u2022 Madrid \u2022 Soleado"</string>
+    <string name="weather_style_8">"32°C \u2022 Hoy 32° / 24° \u2022 Madrid \u2022 Soleado"</string>
     <!-- Parallel space -->
     <string name="laboratory_parallel_space_title">Espacio paralelo</string>
     <string name="laboratory_parallel_space_summary">Permite la ejecución de múltiples instancias de la misma aplicación en paralelo</string>
