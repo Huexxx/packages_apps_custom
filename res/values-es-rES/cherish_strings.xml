@@ -560,7 +560,6 @@
     <string name="custom_color_override_summary_placeholder">        Choosen color: <xliff:g example="#FF0000" id="Color">%1$s</xliff:g>. Set an empty value to use wallpaper color.
     </string>
     <string name="invalid_color_input">Invalid color input!</string>
-    <string name="chroma_factor_title">Colorfulness</string>
     <string name="linear_lightness_title">Use custom lightness scale</string>
     <string name="white_luminance_title">Brightness</string>
     <!-- Power menu Animations  -->
@@ -789,6 +788,79 @@
     <string name="lock_clock_font_dumbledor">Dumbledor</string>
     <string name="lock_clock_font_phantombold">PhantomBold</string>
     <!-- Black theme -->
-    <string name="system_black_theme_title">Vivid Colors</string>
-    <string name="system_black_theme_summary">Use colorful and darker monet shades</string>
+    <string name="system_black_theme_title">Colores Vivos</string>
+    <string name="system_black_theme_summary">Usar sombras monet más oscuras y coloridas</string>
+    <!-- Fingerprint authentication vibration -->
+    <string name="fprint_error_vib_title">Vibración por error de huella</string>
+    <string name="fprint_error_vib_summary">Vibrar en caso de fallo de autenticación con huella dactilar</string>
+    <string name="fprint_success_vib_title">Vibración por huella correcta</string>
+    <string name="fprint_success_vib_summary">Vibrar en caso de autenticación correcta con huella dactilar</string>
+    <!-- Combined signal icons in status bar -->
+    <string name="combined_status_bar_signal_icons_title">Iconos de señal combinados</string>
+    <string name="combined_status_bar_signal_icons_summary">Activa los iconos de señal combinados\n(OJO: se reiniciará para su activación)</string>
+    <!-- Monet settings -->
+    <string name="monet_settings_title">Tematización Monet</string>
+    <string name="monet_settings_sammary">Ajustes adicionales para personalizar el motor monet</string>
+    <string name="theme_style_title">Estilo del tema</string>
+    <string name="theme_style_tonal_spot">Punto tonal (Predeterminado)</string>
+    <string name="theme_style_vibrant">Vibrante</string>
+    <string name="theme_style_expressive">Expresivo</string>
+    <string name="theme_style_spritz">Rociar</string>
+    <string name="theme_style_rainbow">Arcoiris</string>
+    <string name="theme_style_fruit_salad">Ensalada de Frutas</string>
+    <string name="theme_style_muted">Silenciado</string>
+    <string name="theme_style_content">Contenido</string>
+    <string name="theme_style_monochromatic">Monocromático</string>
+    <string name="color_source_title">Fuente de color</string>
+    <string name="color_source_both">Ambos (Predeterminado)</string>
+    <string name="color_source_home">Fondo de pantalla de inicio</string>
+    <string name="color_source_lock">Fondo de pantalla de bloqueo</string>
+    <string name="color_source_preset">Preestablecido</string>
+    <string name="accent_color_title">Color de Acento</string>
+    <string name="accent_color_summary">Reemplazar el color de acento predeterminado</string>
+    <string name="accent_background_title">Fondo de acento</string>
+    <string name="accent_background_summary">Elige un color de acento diferente para el fondo</string>
+    <string name="bg_color_title">Color de Fondo</string>
+    <string name="bg_color_summary">Reemplazar el color de acento de fondo predeterminado</string>
+    <string name="luminance_factor_title">Luminancia</string>
+    <string name="luminance_factor_summary">Valores más altos producen colores más brillantes</string>
+    <string name="chroma_factor_title">Croma</string>
+    <string name="chroma_factor_summary">Valores más altos producen colores más fuertes</string>
+    <string name="tint_background_title">Tintar Fondo</string>
+    <string name="tint_background_summary">Hace que la selección de Luminancia y Croma afecte también a los colores de fondo</string>
+    <!-- QS Header image -->
+    <string name="qs_header_category_title">Cabecera QS</string>
+    <string name="qs_header_image_title">Imagen de la Cabecera QS</string>
+    <string name="qs_header_random_image_title">Imagen aleatória</string>
+    <string name="qs_header_random_image_summary">Establece una imagen aleatoria para la Cabecera QS</string>
+    <!-- Custom Data icons -->
+    <string name="theme_customization_data_title">Estilo del icono de datos</string>
+    <string name="theme_customization_data_summary">Establece un estilo personalizado al icono de datos</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Bloqueo de sensores por aplicación</string>
+    <string name="sensor_block_summary">Bloquea el acceso de aplicaciones a ciertos sensores para ahorrar batería</string>
+    <string name="sensor_block_app_picker_title">Bloquear sensores para estas aplicaciones</string>
+    <string name="add_sensor_block_package_title">Añadir aplicaciones para el bloqueo de sensores</string>
+    <string name="add_sensor_block_package_summary">Los sensores relevantes de movimiento y acelerómetros se bloquearán para estas aplicaciones</string>
+    <!-- Weather -->
+    <string name="weather_settings_title">Ajustes meteorológicos</string>
+    <string name="weather_settings_summary">Configurar el pack de iconos y el servicio meteorológico</string>
+    <string name="lockscreen_weather_title">Condiciones meteorológicas</string>
+    <string name="lockscreen_weather_summary">Muestra las condiciones meteorológicas actuales y la temperatura</string>
+    <string name="lockscreen_weather_enabled_info">El servicio meteorológico tiene que estar activado</string>
+    <string name="lockscreen_weather_location_title">Localización</string>
+    <string name="lockscreen_weather_location_summary">Muestra la localización actual</string>
+    <string name="lockscreen_weather_style_title">Estilo meteorológico en pantalla de bloqueo</string>
+    <string name="lockscreen_weather_style_summary">Muestra las condiciones meteorológicas en una fila separada</string>
+    <!-- Weather Styles -->
+    <string name="weather_style_1">"32°C"</string>
+    <string name="weather_style_2">"32°C \u2022 Hoy 32° / 24°"</string>
+    <string name="weather_style_3">"32°C \u2022 Madrid"</string>
+    <string name="weather_style_4">"32°C \u2022 Soleado"</string>
+    <string name="weather_style_5">"32°C \u2022 Hoy 32° / 24° \u2022 Madrid"</string>
+    <string name="weather_style_6">"32°C \u2022 Hoy 32° / 24° \u2022 Soleado"</string>
+    <string name="weather_style_7">"32°C \u2022 Madrid \u2022 Soleado"</string>
+    <!-- Parallel space -->
+    <string name="laboratory_parallel_space_title">Espacio paralelo</string>
+    <string name="laboratory_parallel_space_summary">Permite la ejecución de múltiples instancias de la misma aplicación en paralelo</string>
 </resources>
