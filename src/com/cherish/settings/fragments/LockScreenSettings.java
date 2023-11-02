@@ -28,9 +28,11 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import androidx.preference.SwitchPreference;
 import androidx.preference.ListPreference;
@@ -68,6 +70,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
 
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
+    private static final String KEY_WEATHER_STYLE = "lockscreen_weather_style";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintSuccessVib;
@@ -79,6 +82,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 	private Context mContext;
 	private ListPreference mTorchPowerButton;
     private SwitchPreference mWeather;
+    private Preference mWeatherStyle;
+    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -144,6 +149,33 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             mWeather.setOnPreferenceChangeListener(this);
         }
 
+        mWeatherStyle = findPreference(KEY_WEATHER_STYLE);
+        updateLws();
+
+        mCustomSettingsObserver.observe();
+    }
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            Context mContext = getContext();
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_WEATHER_STYLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_WEATHER_STYLE))) {
+                updateLws();
+            }
+        }
     }
 
     @Override
@@ -178,6 +210,35 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    private void updateLws() {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        int lws = Settings.System.getIntForUser(getContext().getContentResolver(),
+            Settings.System.LOCKSCREEN_WEATHER_STYLE, 64, UserHandle.USER_CURRENT);
+
+        boolean lwsTemp = (lws > 63);
+        lws = lws - (lwsTemp ? 64 : 0);
+        boolean lwsFeel = (lws > 31);
+        lws = lws - (lwsFeel ? 32 : 0);
+        boolean lwsMaxmin = (lws > 15);
+        lws = lws - (lwsMaxmin ? 16 : 0);
+        boolean lwsCond = (lws > 7);
+        lws = lws - (lwsCond ? 8 : 0);
+        boolean lwsWind = (lws > 3);
+        lws = lws - (lwsWind ? 4 : 0);
+        boolean lwsRhum = (lws > 1);
+        lws = lws - (lwsRhum ? 2 : 0);
+        boolean lwsCity = (lws > 0);
+
+        mWeatherStyle.setSummary(String.format("%s%s%s%s%s%s%s%s", getString(R.string.lws_temp_summary),
+            (lwsTemp && lwsFeel) ? getString(R.string.lws_feel_summary) : "", getString(R.string.lws_temp_unit),
+            lwsMaxmin ? " \u2022 " + getString(R.string.lws_maxmin_summary) : "",
+            lwsCond ? " \u2022 " + getString(R.string.lws_cond_summary) : "",
+            lwsWind ? " \u2022 " + getString(R.string.lws_wind_summary) : "",
+            lwsRhum ? " \u2022 " + getString(R.string.lws_rhum_summary) : "",
+            lwsCity ? " \u2022 " + getString(R.string.lws_city_summary) : ""));
     }
 
     @Override

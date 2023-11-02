@@ -846,21 +846,12 @@
     <string name="weather_settings_title">Ajustes meteorológicos</string>
     <string name="weather_settings_summary">Configurar el pack de iconos y el servicio meteorológico</string>
     <string name="lockscreen_weather_title">Condiciones meteorológicas</string>
-    <string name="lockscreen_weather_summary">Muestra las condiciones meteorológicas actuales y la temperatura</string>
+    <string name="lockscreen_weather_summary">Muestra las condiciones meteorológicas actuales</string>
     <string name="lockscreen_weather_enabled_info">El servicio meteorológico tiene que estar activado</string>
     <string name="lockscreen_weather_location_title">Localización</string>
     <string name="lockscreen_weather_location_summary">Muestra la localización actual</string>
-    <string name="lockscreen_weather_style_title">Estilo meteorológico en pantalla de bloqueo</string>
+    <string name="lockscreen_weather_style_title">Estilo en pantalla de bloqueo</string>
     <string name="lockscreen_weather_style_summary">Muestra las condiciones meteorológicas en una fila separada</string>
-    <!-- Weather Styles -->
-    <string name="weather_style_1">"32°C"</string>
-    <string name="weather_style_2">"32°C \u2022 Hoy 32° / 24°"</string>
-    <string name="weather_style_3">"32°C \u2022 Madrid"</string>
-    <string name="weather_style_4">"32°C \u2022 Soleado"</string>
-    <string name="weather_style_5">"32°C \u2022 Hoy 32° / 24° \u2022 Madrid"</string>
-    <string name="weather_style_6">"32°C \u2022 Hoy 32° / 24° \u2022 Soleado"</string>
-    <string name="weather_style_7">"32°C \u2022 Madrid \u2022 Soleado"</string>
-    <string name="weather_style_8">"32°C \u2022 Hoy 32° / 24° \u2022 Madrid \u2022 Soleado"</string>
     <!-- Parallel space -->
     <string name="laboratory_parallel_space_title">Espacio paralelo</string>
     <string name="laboratory_parallel_space_summary">Permite la ejecución de múltiples instancias de la misma aplicación en paralelo</string>
