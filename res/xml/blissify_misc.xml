@@ -45,10 +45,16 @@
 
          </PreferenceCategory>
 
-    <Preference
-        android:key="spoof_settings"
-        android:title="@string/spoof_title"
-        android:summary="@string/spoof_summary"
-        android:fragment="org.blissroms.blissify.fragments.misc.SpoofSettings" />
+    <PreferenceCategory
+        android:key="miscellaneous_spoofing_category"
+        android:title="@string/miscellaneous_spoofing_category">
+
+        <!-- Component spoofing -->
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:fragment="org.blissroms.blissify.fragments.misc.Spoofing" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
