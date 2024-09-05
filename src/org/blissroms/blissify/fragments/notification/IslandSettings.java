@@ -1,61 +1,65 @@
 /*
- * Copyright (C) 2023 the risingOS Android Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright (C) 2014-2024 BlissRoms Project
+ * SPDX-License-Identifier: Apache-2.0
  */
+
 package org.blissroms.blissify.fragments.notification;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.provider.Settings;
 
-import com.android.internal.logging.nano.MetricsProto;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
 @SearchIndexable
-public class IslandSettings extends SettingsPreferenceFragment {
+public class IslandSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
-    public static final String TAG = "IslandSettings";
+    private static final String TAG = "IslandSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.island_settings);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources resources = context.getResources();
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+        return false;
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BLISSIFY;
+        return MetricsEvent.BLISSIFY;
     }
 
-    /**
-     * For search
-     */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.island_settings) {
+        new BaseSearchIndexProvider(R.xml.island_settings) {
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-
-                    return keys;
-                }
-            };
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                final Resources resources = context.getResources();
+                return keys;
+            }
+        };
 }
