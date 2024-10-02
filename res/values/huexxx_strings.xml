@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Weather Styles -->
+    <string name="lockscreen_weather_style_title">Lockscreen weather style</string>
+    <string name="lws_temp_title">Temperature</string>
+    <string name="lws_temp_summary">86</string>
+    <string name="lws_feel_title">Wind chill</string>
+    <string name="lws_feel_summary">[81]</string>
+    <string name="lws_maxmin_title">Max/Min temps</string>
+    <string name="lws_maxmin_summary">Today 89º/75º</string>
+    <string name="lws_cond_title">Weather conditions</string>
+    <string name="lws_cond_summary">Sunny</string>
+    <string name="lws_wind_title">Wind</string>
+    <string name="lws_wind_summary">NE(45º) 7·mph</string>
+    <string name="lws_rhum_title">Relative humidity</string>
+    <string name="lws_rhum_summary">RH:67%</string>
+    <string name="lws_city_title">Localization</string>
+    <string name="lws_city_summary">New York</string>
+    <string name="lws_temp_unit">ºF</string>
+</resources>

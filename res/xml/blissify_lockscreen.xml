@@ -43,23 +43,26 @@
             android:defaultValue="true" />
 
         <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lockscreen_battery_info_title"
+            android:summary="@string/lockscreen_battery_info_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/weather_category_title">
+
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_enabled"
             android:title="@string/lockscreen_weather_title"
             android:defaultValue="false"
             android:summary="@string/lockscreen_weather_summary" />
 
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_location"
-            android:title="@string/lockscreen_weather_location_title"
-            android:summary="@string/lockscreen_weather_location_summary"
-            android:defaultValue="false"
-            android:dependency="lockscreen_weather_enabled" />
-
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_text"
-            android:title="@string/lockscreen_weather_text_title"
-            android:summary="@string/lockscreen_weather_text_summary"
-            android:defaultValue="true"
+        <Preference
+            android:key="lockscreen_weather_style"
+            android:title="@string/lockscreen_weather_style_title"
+            android:fragment="org.blissroms.blissify.fragments.lockscreen.WeatherStyle"
             android:dependency="lockscreen_weather_enabled" />
 
         <Preference
@@ -70,12 +73,6 @@
                  android:targetPackage="org.omnirom.omnijaws"
                  android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
         </Preference>
-
-        <com.bliss.support.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_battery_info"
-            android:title="@string/lockscreen_battery_info_title"
-            android:summary="@string/lockscreen_battery_info_summary"
-            android:defaultValue="true" />
 
     </PreferenceCategory>
 

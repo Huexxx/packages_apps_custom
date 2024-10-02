@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Weather Styles -->
+    <string name="lockscreen_weather_style_title">Estilo meteorológico en pantalla de bloqueo</string>
+    <string name="lws_temp_title">Temperatura</string>
+    <string name="lws_temp_summary">30</string>
+    <string name="lws_feel_title">Sensación térmica</string>
+    <string name="lws_feel_summary">[27]</string>
+    <string name="lws_maxmin_title">Temperatura Máxima/Mínima</string>
+    <string name="lws_maxmin_summary">Hoy 32º/24º</string>
+    <string name="lws_cond_title">Condiciones meteorológicas</string>
+    <string name="lws_cond_summary">Soleado</string>
+    <string name="lws_wind_title">Viento</string>
+    <string name="lws_wind_summary">NE(45º) 7·km/h</string>
+    <string name="lws_rhum_title">Humedad relativa</string>
+    <string name="lws_rhum_summary">HR:67%</string>
+    <string name="lws_city_title">Localización</string>
+    <string name="lws_city_summary">Madrid</string>
+    <string name="lws_temp_unit">ºC</string>
+</resources>
