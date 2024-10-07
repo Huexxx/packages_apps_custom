@@ -66,6 +66,13 @@
             android:defaultValue="false"
             android:dependency="lockscreen_weather_enabled" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_twolines"
+            android:title="@string/lockscreen_weather_twolines"
+            android:summary="@string/lockscreen_weather_twolines_summary"
+            android:defaultValue="false"
+            android:dependency="lockscreen_weather_enabled" />
+
         <Preference
             android:key="lockscreen_weather_style"
             android:title="@string/lockscreen_weather_style_title"

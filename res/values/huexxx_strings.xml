@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Weather Two Lines -->
+    <string name="lockscreen_weather_twolines">Use two lines for weather info</string>
+    <string name="lockscreen_weather_twolines_summary">If weather info is too large, it will be shown in two lines instead of be scrolled in one single line</string>
     <!-- Weather Styles -->
     <string name="lockscreen_weather_style_title">Lockscreen weather style</string>
     <string name="lws_temp_title">Temperature</string>

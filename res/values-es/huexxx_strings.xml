@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Weather Two Lines -->
+    <string name="lockscreen_weather_twolines">Usar dos líneas para la información meteorológica</string>
+    <string name="lockscreen_weather_twolines_summary">Si la información meteorológica es demasiado larga, esta se mostrará en dos líneas en vez de desplazarse en una única línea</string>
     <!-- Weather Styles -->
     <string name="lockscreen_weather_style_title">Estilo meteorológico en pantalla de bloqueo</string>
     <string name="lws_temp_title">Temperatura</string>
