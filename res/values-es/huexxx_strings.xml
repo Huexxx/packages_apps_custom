@@ -15,7 +15,5 @@
     <string name="lws_wind_summary">NE(45º) 7·km/h</string>
     <string name="lws_rhum_title">Humedad relativa</string>
     <string name="lws_rhum_summary">HR:67%</string>
-    <string name="lws_city_title">Localización</string>
-    <string name="lws_city_summary">Madrid</string>
     <string name="lws_temp_unit">ºC</string>
 </resources>

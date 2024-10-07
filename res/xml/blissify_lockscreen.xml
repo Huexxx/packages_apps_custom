@@ -59,6 +59,13 @@
             android:defaultValue="false"
             android:summary="@string/lockscreen_weather_summary" />
 
+        <com.bliss.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_location"
+            android:title="@string/lockscreen_weather_location_title"
+            android:summary="@string/lockscreen_weather_location_summary"
+            android:defaultValue="false"
+            android:dependency="lockscreen_weather_enabled" />
+
         <Preference
             android:key="lockscreen_weather_style"
             android:title="@string/lockscreen_weather_style_title"

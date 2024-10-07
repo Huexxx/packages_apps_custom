@@ -184,27 +184,24 @@ public class Lockscreen extends SettingsPreferenceFragment implements
     private void updateLws() {
         ContentResolver resolver = getActivity().getContentResolver();
         int lws = Settings.System.getIntForUser(getContext().getContentResolver(),
-            Settings.System.LOCKSCREEN_WEATHER_STYLE, 64, UserHandle.USER_CURRENT);
-        boolean lwsTemp = (lws > 63);
-        lws = lws - (lwsTemp ? 64 : 0);
-        boolean lwsFeel = (lws > 31);
-        lws = lws - (lwsFeel ? 32 : 0);
-        boolean lwsMaxmin = (lws > 15);
-        lws = lws - (lwsMaxmin ? 16 : 0);
-        boolean lwsCond = (lws > 7);
-        lws = lws - (lwsCond ? 8 : 0);
-        boolean lwsWind = (lws > 3);
-        lws = lws - (lwsWind ? 4 : 0);
-        boolean lwsRhum = (lws > 1);
-        lws = lws - (lwsRhum ? 2 : 0);
-        boolean lwsCity = (lws > 0);
-        mWeatherStyle.setSummary(String.format("%s%s%s%s%s%s%s%s", getString(R.string.lws_temp_summary),
+            Settings.System.LOCKSCREEN_WEATHER_STYLE, 32, UserHandle.USER_CURRENT);
+        boolean lwsTemp = (lws > 31);
+        lws = lws - (lwsTemp ? 32 : 0);
+        boolean lwsFeel = (lws > 15);
+        lws = lws - (lwsFeel ? 16 : 0);
+        boolean lwsMaxmin = (lws > 7);
+        lws = lws - (lwsMaxmin ? 8 : 0);
+        boolean lwsCond = (lws > 3);
+        lws = lws - (lwsCond ? 4 : 0);
+        boolean lwsWind = (lws > 1);
+        lws = lws - (lwsWind ? 2 : 0);
+        boolean lwsRhum = (lws > 0);
+        mWeatherStyle.setSummary(String.format("%s%s%s%s%s%s%s", getString(R.string.lws_temp_summary),
             (lwsTemp && lwsFeel) ? getString(R.string.lws_feel_summary) : "", getString(R.string.lws_temp_unit),
             lwsMaxmin ? " \u2022 " + getString(R.string.lws_maxmin_summary) : "",
             lwsCond ? " \u2022 " + getString(R.string.lws_cond_summary) : "",
             lwsWind ? " \u2022 " + getString(R.string.lws_wind_summary) : "",
-            lwsRhum ? " \u2022 " + getString(R.string.lws_rhum_summary) : "",
-            lwsCity ? " \u2022 " + getString(R.string.lws_city_summary) : ""));
+            lwsRhum ? " \u2022 " + getString(R.string.lws_rhum_summary) : ""));
     }
 
     @Override

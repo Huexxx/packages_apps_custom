@@ -38,9 +38,4 @@
         android:title="@string/lws_rhum_title"
         android:summary="@string/lws_rhum_summary"/>
 
-    <SwitchPreference
-        android:key="lws_city_enabled"
-        android:title="@string/lws_city_title"
-        android:summary="@string/lws_city_summary"/>
-
 </PreferenceScreen>

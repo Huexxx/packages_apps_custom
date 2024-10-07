@@ -45,7 +45,6 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
     private static final String LWS_COND_KEY = "lws_cond_enabled";
     private static final String LWS_WIND_KEY = "lws_wind_enabled";
     private static final String LWS_RHUM_KEY = "lws_rhum_enabled";
-    private static final String LWS_CITY_KEY = "lws_city_enabled";
     private static final String LWS_FOOTER = "lws_footer";
 
     private SwitchPreference mLwsTemp;
@@ -54,7 +53,6 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
     private SwitchPreference mLwsCond;
     private SwitchPreference mLwsWind;
     private SwitchPreference mLwsRhum;
-    private SwitchPreference mLwsCity;
     private Preference mFooterPref;
 
     @Override
@@ -100,12 +98,6 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
                 Settings.System.LWS_RHUM_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         mLwsRhum.setChecked(lwsRhum);
         mLwsRhum.setOnPreferenceChangeListener(this);
-
-        mLwsCity = (SwitchPreference) findPreference(LWS_CITY_KEY);
-        boolean lwsCity = Settings.System.getIntForUser(resolver,
-                Settings.System.LWS_CITY_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mLwsCity.setChecked(lwsCity);
-        mLwsCity.setOnPreferenceChangeListener(this);
 
         mFooterPref = findPreference(LWS_FOOTER);
 
@@ -156,12 +148,6 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
                 Settings.System.LWS_RHUM_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
             return true;
-        } else if (preference == mLwsCity) {
-            boolean val = (Boolean) newValue;
-            Settings.System.putIntForUser(resolver,
-                Settings.System.LWS_CITY_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
-            updateAllPrefs();
-            return true;
         }
         return false;
     }
@@ -181,11 +167,9 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
             Settings.System.LWS_WIND_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean lwsRhum = Settings.System.getIntForUser(resolver,
             Settings.System.LWS_RHUM_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        boolean lwsCity = Settings.System.getIntForUser(resolver,
-            Settings.System.LWS_CITY_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
-        int lws = (lwsTemp ? 64 : 0) + (lwsFeel ? 32 : 0) + (lwsMaxmin ? 16 : 0)
-            + (lwsCond ? 8 : 0) + (lwsWind ? 4 : 0) + (lwsRhum ? 2 : 0) + (lwsCity ? 1 : 0);
+        int lws = (lwsTemp ? 32 : 0) + (lwsFeel ? 16 : 0) + (lwsMaxmin ? 8 : 0)
+            + (lwsCond ? 4 : 0) + (lwsWind ? 2 : 0) + (lwsRhum ? 1 : 0);
 
         Settings.System.putIntForUser(resolver, Settings.System.LOCKSCREEN_WEATHER_STYLE,
             lws, UserHandle.USER_CURRENT);
@@ -193,13 +177,12 @@ public class WeatherStyle extends SettingsPreferenceFragment implements
         mLwsTemp.setEnabled(!(lwsTemp && !lwsFeel));
         mLwsFeel.setEnabled(!(!lwsTemp && lwsFeel));
 
-        mFooterPref.setTitle(String.format("%s%s%s%s%s%s%s%s", getString(R.string.lws_temp_summary),
+        mFooterPref.setTitle(String.format("%s%s%s%s%s%s%s", getString(R.string.lws_temp_summary),
             (lwsTemp && lwsFeel) ? getString(R.string.lws_feel_summary) : "", getString(R.string.lws_temp_unit),
             lwsMaxmin ? " \u2022 " + getString(R.string.lws_maxmin_summary) : "",
             lwsCond ? " \u2022 " + getString(R.string.lws_cond_summary) : "",
             lwsWind ? " \u2022 " + getString(R.string.lws_wind_summary) : "",
-            lwsRhum ? " \u2022 " + getString(R.string.lws_rhum_summary) : "",
-            lwsCity ? " \u2022 " + getString(R.string.lws_city_summary) : ""));
+            lwsRhum ? " \u2022 " + getString(R.string.lws_rhum_summary) : ""));
     }
 
     @Override
